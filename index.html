@@ -2,250 +2,161 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- 
-    - primary meta tags
-  -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rohan Gr</title>
-  <meta name="title" content="Rohan Gr">
-  <meta name="description" content="This is a personal portfolio html template made by codewithsadee">
+  <meta name="title" content="Rohan Gr" />
+  <meta name="description" content="This is a personal portfolio html template made by codewithsadee" />
 
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
 
-  <!-- 
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- 
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!-- 
-    - preload images
-  -->
-  <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">
-
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="preload" as="image" href="./assets/images/hero-banner.jpg" />
 </head>
 
 <body>
 
-  <!-- 
-    - #PRELOADER
-  -->
-
+  <!-- Preloader -->
   <div class="preloader" data-preloader>
     <div class="circle"></div>
   </div>
 
-
-
-
-
-  <!-- 
-    - #HEADER
-  -->
-
+  <!-- Header -->
   <header class="header" data-header>
     <div class="container">
-
       <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="170" height="40" alt="Pfolio home">
+        <img src="./assets/images/logo.svg" width="170" height="40" alt="Pfolio home" />
       </a>
 
-      <button class="nav-toggle-btn" data-nav-toggler data-nav-toggle-btn aria-label="Toggle menu">
+      <button class="nav-toggle-btn" data-nav-toggler aria-label="Toggle menu">
         <span class="line line-1"></span>
         <span class="line line-2"></span>
       </button>
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
-
-          <li>
-            <a href="#" class="navbar-link">Home</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link">Resume</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link">Services</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link">Portfolio</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link">Blog</a>
-          </li>
-
-          <li>
-            <a href="#" class="navbar-link">Contact</a>
-          </li>
-
+          <li><a href="#" class="navbar-link">Home</a></li>
+          <li><a href="#" class="navbar-link">Resume</a></li>
+          <li><a href="#" class="navbar-link">Services</a></li>
+          <li><a href="#" class="navbar-link">Portfolio</a></li>
+          <li><a href="#" class="navbar-link">Blog</a></li>
+          <li><a href="#" class="navbar-link">Contact</a></li>
         </ul>
       </nav>
 
-      <div class="overlay" data-nav-toggler data-overlay></div>
-
+      <div class="overlay" data-nav-toggler></div>
     </div>
   </header>
-
-
-
-
 
   <main>
     <article>
 
-      <!-- 
-        - #HERO
-      -->
-
+      <!-- Hero Section -->
       <section class="section hero" aria-label="home">
         <div class="container">
-
           <div class="hero-content">
+            <h1 class="h1 hero-title">Rohan Gr</h1>
 
-            <h1 class="h1 hero-title">Kane Williams</h1>
-
-            <p class="hero-subtitle">
-              Creative Web & App Developer
-            </p>
+            <p class="hero-subtitle">Creative Web & App Developer</p>
 
             <div class="hero-banner">
-              <img src="./assets/images/hero-banner.jpg" width="800" height="800" alt="kane williams" class="w-100">
+              <img src="./assets/images/hero-banner.jpg" width="800" height="800" alt="Rohan Gr" class="w-100" />
             </div>
 
             <p class="section-text">
-              Hi, I’m kane williams and I am creative web & app developer who dream making the world better place by
-              creating captivating products.
+              Hi, I’m Rohan Gr, a creative web & app developer passionate about building impactful digital experiences.
             </p>
 
-            <a href="#" class="btn has-before">
-              <span class="span">Download CV</span>
-
-              <ion-icon name="download-outline" aria-hidden="true"></ion-icon>
-            </a>
+            <!-- Like Button -->
+            <button class="btn has-before" id="likeBtn" onclick="toggleLike()">
+              <span class="span" id="likeText">Like</span>
+              <ion-icon name="heart-outline" id="likeIcon" aria-hidden="true"></ion-icon>
+            </button>
 
           </div>
-
         </div>
       </section>
 
+      <!-- Embedded Spotify Section -->
+      <section class="section" aria-label="Spotify Preview" id="spotify-preview">
+        <div class="container">
+          <h2 class="h2 section-title">My Favorite Tunes</h2>
+          <p class="section-text">Here’s what I’ve been vibing to lately.</p>
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
+            width="100%" height="380" frameborder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </section>
 
-
-
-
-      <!-- 
-        - #SERVICE
-      -->
-
+      <!-- Services Section -->
       <section class="service" aria-labelledby="service-label">
         <div class="container">
-
           <div class="title-wrapper">
-
             <div>
-              <p class="section-subtitle">
-                Services That I Provide
-              </p>
-
+              <p class="section-subtitle">Services That I Provide</p>
               <h2 class="h2 section-title" id="service-label">Services</h2>
             </div>
-
             <p class="section-text">
-              Phasellus et lacus suscipit congue nisl the volutpat magna. donec miss the drana risus tincidunt convallis
-              velit orci congue tortor eu dignissim ipsum suam non odio. Pellenta esuntion miss the imperdiet metus
-              ornare.
+              I specialize in building responsive websites, modern web applications, and tailored software solutions to solve real-world problems.
             </p>
-
           </div>
+        </div>
+      </section>
 
-          
+    </article>
+  </main>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-
       <ul class="footer-list">
-
         <li>
           <p class="h4 footer-list-title">Get in touch</p>
         </li>
-
         <li>
-          <a href="mailto:info@kwilliams.com" class="footer-link">info@kwilliams.com</a>
+          <a href="mailto:info@rohangr.com" class="footer-link">info@rohangr.com</a>
         </li>
-
       </ul>
 
       <ul class="footer-list">
-
         <li>
-          <p class="h4 footer-list-title">Locations</p>
+          <p class="h4 footer-list-title">Location</p>
         </li>
-
         <li>
           <a href="#" class="footer-link">San Francisco — California</a>
         </li>
-
       </ul>
 
       <ul class="social-list">
-
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-dribbble"></ion-icon>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-skype"></ion-icon>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </a>
-        </li>
-
+        <li><a href="#" class="social-link"><ion-icon name="logo-dribbble"></ion-icon></a></li>
+        <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="#" class="social-link"><ion-icon name="logo-skype"></ion-icon></a></li>
+        <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
       </ul>
-
     </div>
   </footer>
 
-
-
-
-
-  <!-- 
-    - custom js link
-  -->
+  <!-- Scripts -->
   <script src="./assets/js/script.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Like Button Script -->
+  <script>
+    function toggleLike() {
+      const icon = document.getElementById('likeIcon');
+      const text = document.getElementById('likeText');
+      const liked = icon.name === 'heart';
+
+      icon.name = liked ? 'heart-outline' : 'heart';
+      text.textContent = liked ? 'Like' : 'Liked';
+    }
+  </script>
 
 </body>
 
