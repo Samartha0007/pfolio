@@ -7,26 +7,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rohan Gr</title>
   <meta name="title" content="Rohan Gr" />
-  <meta name="description" content="This is a personal portfolio html template made by codewithsadee" />
+  <meta name="description" content="Personal portfolio of Rohan Gr" />
 
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="preload" as="image" href="./assets/images/hero-banner.jpg" />
+
+  <style>
+    .like-btn {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 10px 20px;
+      background-color: #ff4d4f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .like-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .like-btn ion-icon {
+      font-size: 1.2rem;
+    }
+
+    .like-btn.shake {
+      animation: shake 0.3s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+      75% { transform: translateX(-2px); }
+      100% { transform: translateX(0); }
+    }
+
+    .floating-heart {
+      position: fixed;
+      font-size: 1.2rem;
+      color: red;
+      animation: floatUp 1.5s ease forwards;
+      z-index: 9999;
+    }
+
+    @keyframes floatUp {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-100px); }
+    }
+
+    .ripple {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: rippleEffect 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes rippleEffect {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Preloader -->
   <div class="preloader" data-preloader>
     <div class="circle"></div>
   </div>
 
-  <!-- Header -->
   <header class="header" data-header>
     <div class="container">
       <a href="#" class="logo">
@@ -55,13 +121,10 @@
 
   <main>
     <article>
-
-      <!-- Hero Section -->
       <section class="section hero" aria-label="home">
         <div class="container">
           <div class="hero-content">
             <h1 class="h1 hero-title">Rohan Gr</h1>
-
             <p class="hero-subtitle">Creative Web & App Developer</p>
 
             <div class="hero-banner">
@@ -72,18 +135,19 @@
               Hi, I’m Rohan Gr, a creative web & app developer passionate about building impactful digital experiences.
             </p>
 
-            <!-- Like Button -->
-            <button class="btn has-before" id="likeBtn" onclick="toggleLike()">
-              <span class="span" id="likeText">Like</span>
-              <ion-icon name="heart-outline" id="likeIcon" aria-hidden="true"></ion-icon>
-            </button>
-
+            <div class="like-wrapper">
+              <button id="likeButton" class="like-btn" onclick="likePost()">
+                <ion-icon name="heart" aria-hidden="true"></ion-icon>
+                <span id="likeText">Like</span>
+                <span id="likeCount">0</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Embedded Spotify Section -->
-      <section class="section" aria-label="Spotify Preview" id="spotify-preview">
+      <!-- Spotify Preview -->
+      <section class="section" aria-label="Spotify Preview">
         <div class="container">
           <h2 class="h2 section-title">My Favorite Tunes</h2>
           <p class="section-text">Here’s what I’ve been vibing to lately.</p>
@@ -93,7 +157,7 @@
         </div>
       </section>
 
-      <!-- Services Section -->
+      <!-- Services -->
       <section class="service" aria-labelledby="service-label">
         <div class="container">
           <div class="title-wrapper">
@@ -107,11 +171,9 @@
           </div>
         </div>
       </section>
-
     </article>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <ul class="footer-list">
@@ -141,23 +203,93 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="./assets/js/script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- Firebase Like Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+    import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
 
-  <!-- Like Button Script -->
-  <script>
-    function toggleLike() {
-      const icon = document.getElementById('likeIcon');
-      const text = document.getElementById('likeText');
-      const liked = icon.name === 'heart';
+    const firebaseConfig = {
+      apiKey: "AIzaSyD6XevtiU5_5T3qsPrrgZNrcTXOUcI_jaY",
+      authDomain: "sammu-database.firebaseapp.com",
+      databaseURL: "https://sammu-database-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "sammu-database",
+      storageBucket: "sammu-database.appspot.com",
+      messagingSenderId: "975899243226",
+      appId: "1:975899243226:web:c81d3263a3e30a271a6be3",
+      measurementId: "G-B85J29F4RB"
+    };
 
-      icon.name = liked ? 'heart-outline' : 'heart';
-      text.textContent = liked ? 'Like' : 'Liked';
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const analytics = getAnalytics(app);
+    const likeRef = ref(db, "likes");
+
+    get(likeRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        document.getElementById("likeCount").innerText = snapshot.val();
+      }
+    });
+
+    onValue(likeRef, (snapshot) => {
+      const likes = snapshot.val();
+      if (likes !== null) {
+        document.getElementById("likeCount").innerText = likes;
+      }
+    });
+
+    window.likePost = function () {
+      const likeButton = document.getElementById("likeButton");
+      const likeCountSpan = document.getElementById("likeCount");
+      let hasLiked = localStorage.getItem("hasLiked") === "true";
+
+      if (hasLiked) {
+        likeButton.classList.add("shake");
+        setTimeout(() => {
+          likeButton.classList.remove("shake");
+        }, 500);
+        alert("Oops! You've already liked ❤️‍🔥 Thanks for your support!");
+        return;
+      }
+
+      localStorage.setItem("hasLiked", "true");
+
+      const heart = document.createElement("div");
+      heart.classList.add("floating-heart");
+      heart.innerHTML = "+1 ❤️‍🔥";
+      const rect = likeButton.getBoundingClientRect();
+      heart.style.left = `${rect.left + rect.width / 2}px`;
+      heart.style.top = `${rect.top - 10}px`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1500);
+
+      showRippleEffect(likeButton);
+      likeButton.disabled = true;
+
+      runTransaction(likeRef, (currentLikes) => {
+        return (currentLikes || 0) + 1;
+      }).then(({ snapshot }) => {
+        likeCountSpan.textContent = snapshot.val();
+        likeButton.disabled = false;
+      }).catch((error) => {
+        console.error("Error updating likes:", error);
+        likeButton.disabled = false;
+      });
+    };
+
+    function showRippleEffect(button) {
+      const ripple = document.createElement("span");
+      ripple.classList.add("ripple");
+      const rect = button.getBoundingClientRect();
+      ripple.style.left = `${rect.width / 2}px`;
+      ripple.style.top = `${rect.height / 2}px`;
+      button.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
     }
   </script>
 
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>
