@@ -478,7 +478,7 @@ body.nav-active { overflow: hidden; }
   color: var(--white);
   letter-spacing: 2px;
   line-height: 1.5em;
-  margin-block: 10px 20px;
+  margin-block: 10px 10px;
 }
 
 .hero-banner {
