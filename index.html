@@ -1,142 +1,192 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rohan Gr</title>
-  <meta name="description" content="Personal Portfolio">  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-</head><body>
-  <header class="header">
-    <div class="container">
-      <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="170" height="40" alt="Pfolio home">
-      </a>
-      <button class="nav-toggle-btn" aria-label="Toggle menu">
-        <span class="line line-1"></span>
-        <span class="line line-2"></span>
-      </button>
-      <nav class="navbar">
-        <ul class="navbar-list">
-          <li><a href="#" class="navbar-link">Home</a></li>
-          <li><a href="#" class="navbar-link">Resume</a></li>
-          <li><a href="#" class="navbar-link">Services</a></li>
-          <li><a href="#" class="navbar-link">Portfolio</a></li>
-          <li><a href="#" class="navbar-link">Blog</a></li>
-          <li><a href="#" class="navbar-link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>  <main>
-    <section class="section hero" aria-label="home">
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="h1 hero-title">Kane Williams</h1>
-          <p class="hero-subtitle">Creative Web & App Developer</p>
-          <div class="hero-banner">
-            <img src="./assets/images/hero-banner.jpg" width="800" height="800" alt="kane williams" class="w-100">
-          </div>
-          <p class="section-text">
-            Hi, I’m kane williams and I am a creative web & app developer who dreams of making the world a better place by creating captivating products.
-          </p>
-          <button id="likeButton" class="btn has-before" onclick="likePost()">
-            <span class="span">Like</span>
-            <ion-icon name="heart" aria-hidden="true"></ion-icon>
-            <span id="likeCount">0</span>
-          </button>
-        </div>
+<!DOCTYPE html>  <html lang="en">  <head>  
+  <meta charset="UTF-8">  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <!--   
+    - primary meta tags  
+  -->    <title>Rohan Gr</title>  
+  <meta name="title" content="Rohan Gr">  
+  <meta name="description" content="This is a personal portfolio html template made by codewithsadee">    <!--   
+    - favicon  
+  -->    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">    <!--   
+    - google font link  
+  -->    <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">    <!--   
+    - custom css link  
+  -->    <link rel="stylesheet" href="./assets/css/style.css">    <!--   
+    - preload images  
+  -->    <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">  </head>  <body>    <!--   
+    - #PRELOADER  
+  -->    <div class="preloader" data-preloader>  
+    <div class="circle"></div>  
+  </div>    <!--   
+    - #HEADER  
+  -->    <header class="header" data-header>  
+    <div class="container">  <a href="#" class="logo">  
+    <img src="./assets/images/logo.svg" width="170" height="40" alt="Pfolio home">  
+  </a>  
+
+  <button class="nav-toggle-btn" data-nav-toggler data-nav-toggle-btn aria-label="Toggle menu">  
+    <span class="line line-1"></span>  
+    <span class="line line-2"></span>  
+  </button>  
+
+  <nav class="navbar" data-navbar>  
+    <ul class="navbar-list">  
+
+      <li>  
+        <a href="#" class="navbar-link">Home</a>  
+      </li>  
+
+      <li>  
+        <a href="#" class="navbar-link">Resume</a>  
+      </li>  
+
+      <li>  
+        <a href="#" class="navbar-link">Services</a>  
+      </li>  
+
+      <li>  
+        <a href="#" class="navbar-link">Portfolio</a>  
+      </li>  
+
+      <li>  
+        <a href="#" class="navbar-link">Blog</a>  
+      </li>  
+
+      <li>  
+        <a href="#" class="navbar-link">Contact</a>  
+      </li>  
+
+    </ul>  
+  </nav>  
+
+  <div class="overlay" data-nav-toggler data-overlay></div>  
+
+</div>
+
+  </header>    <main>  
+    <article>  <!--   
+    - #HERO  
+  -->  
+
+  <section class="section hero" aria-label="home">  
+    <div class="container">  
+
+      <div class="hero-content">  
+
+        <h1 class="h1 hero-title">Kane Williams</h1>  
+
+        <p class="hero-subtitle">  
+          Creative Web & App Developer  
+        </p>  
+
+        <div class="hero-banner">  
+          <img src="./assets/images/hero-banner.jpg" width="800" height="800" alt="kane williams" class="w-100">  
+        </div>  
+
+        <p class="section-text">  
+          Hi, I’m kane williams and I am creative web & app developer who dream making the world better place by  
+          creating captivating products.  
+        </p>  
+
+        <a href="#" class="btn has-before">  
+          <span class="span">Download CV</span>  
+
+          <ion-icon name="download-outline" aria-hidden="true"></ion-icon>  
+        </a>  
+
+      </div>  
+
+    </div>  
+  </section>  
+
+
+
+
+
+  <!--   
+    - #SERVICE  
+  -->  
+
+  <section class="service" aria-labelledby="service-label">  
+    <div class="container">  
+
+      <div class="title-wrapper">  
+
+        <div>  
+          <p class="section-subtitle">  
+            Services That I Provide  
+          </p>  
+
+          <h2 class="h2 section-title" id="service-label">Services</h2>  
+        </div>  
+
+        <p class="section-text">  
+          Phasellus et lacus suscipit congue nisl the volutpat magna. donec miss the drana risus tincidunt convallis  
+          velit orci congue tortor eu dignissim ipsum suam non odio. Pellenta esuntion miss the imperdiet metus  
+          ornare.  
+        </p>  
+
       </div>
-    </section><section class="section">
-  <div class="container">
-    <h2 class="h2 section-title">My Spotify Playlist</h2>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="100%" height="380" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-</section>
 
-<section class="service" aria-labelledby="service-label">
-  <div class="container">
-    <div class="title-wrapper">
-      <div>
-        <p class="section-subtitle">Services That I Provide</p>
-        <h2 class="h2 section-title" id="service-label">Services</h2>
-      </div>
-      <p class="section-text">
-        I specialize in building responsive websites, custom applications, and modern user interfaces with top-notch performance and design.
-      </p>
-    </div>
-  </div>
-</section>
+  <footer class="footer">  
+    <div class="container">  <ul class="footer-list">  
 
-  </main>  <footer class="footer">
-    <div class="container">
-      <ul class="footer-list">
-        <li><p class="h4 footer-list-title">Get in touch</p></li>
-        <li><a href="mailto:info@kwilliams.com" class="footer-link">info@kwilliams.com</a></li>
-      </ul>
-      <ul class="footer-list">
-        <li><p class="h4 footer-list-title">Locations</p></li>
-        <li><a href="#" class="footer-link">San Francisco — California</a></li>
-      </ul>
-      <ul class="social-list">
-        <li><a href="#" class="social-link"><ion-icon name="logo-dribbble"></ion-icon></a></li>
-        <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
-        <li><a href="#" class="social-link"><ion-icon name="logo-skype"></ion-icon></a></li>
-        <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-      </ul>
-    </div>
-  </footer>  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-    import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+    <li>  
+      <p class="h4 footer-list-title">Get in touch</p>  
+    </li>  
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyD6XevtiU5_5T3qsPrrgZNrcTXOUcI_jaY",
-      authDomain: "sammu-database.firebaseapp.com",
-      databaseURL: "https://sammu-database-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "sammu-database",
-      storageBucket: "sammu-database.appspot.com",
-      messagingSenderId: "975899243226",
-      appId: "1:975899243226:web:c81d3263a3e30a271a6be3",
-      measurementId: "G-B85J29F4RB"
-    };
+    <li>  
+      <a href="mailto:info@kwilliams.com" class="footer-link">info@kwilliams.com</a>  
+    </li>  
 
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    getAnalytics(app);
+  </ul>  
 
-    const likeRef = ref(db, "likes");
+  <ul class="footer-list">  
 
-    get(likeRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        document.getElementById("likeCount").innerText = snapshot.val();
-      }
-    });
+    <li>  
+      <p class="h4 footer-list-title">Locations</p>  
+    </li>  
 
-    onValue(likeRef, (snapshot) => {
-      const likes = snapshot.val();
-      if (likes !== null) {
-        document.getElementById("likeCount").innerText = likes;
-      }
-    });
+    <li>  
+      <a href="#" class="footer-link">San Francisco — California</a>  
+    </li>  
 
-    window.likePost = function () {
-      const likeButton = document.getElementById("likeButton");
-      const likeCountSpan = document.getElementById("likeCount");
-      let hasLiked = localStorage.getItem("hasLiked") === "true";
+  </ul>  
 
-      if (hasLiked) {
-        alert("Oops! You've already liked ❤️‍🔥 Thanks!");
-        return;
-      }
+  <ul class="social-list">  
 
-      localStorage.setItem("hasLiked", "true");
+    <li>  
+      <a href="#" class="social-link">  
+        <ion-icon name="logo-dribbble"></ion-icon>  
+      </a>  
+    </li>  
 
-      runTransaction(likeRef, (currentLikes) => {
-        return (currentLikes || 0) + 1;
-      }).then(({ snapshot }) => {
-        likeCountSpan.textContent = snapshot.val();
-      }).catch((error) => {
-        console.error("Error updating likes:", error);
-      });
-    }
-  </script>  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script></body></html>
+    <li>  
+      <a href="#" class="social-link">  
+        <ion-icon name="logo-instagram"></ion-icon>  
+      </a>  
+    </li>  
+
+    <li>  
+      <a href="#" class="social-link">  
+        <ion-icon name="logo-skype"></ion-icon>  
+      </a>  
+    </li>  
+
+    <li>  
+      <a href="#" class="social-link">  
+        <ion-icon name="logo-linkedin"></ion-icon>  
+      </a>  
+    </li>  
+
+  </ul>  
+
+</div>
+
+  </footer>    <!--   
+    - custom js link  
+  -->    <script src="./assets/js/script.js"></script>    <!--   
+    - ionicon link  
+  -->    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>  </body>  </html>
