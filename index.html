@@ -145,7 +145,71 @@ This site is where I share a bit about me and what I'm interested in. Thanks for
 
 </div>
 
-  </footer>    <!--   
+  </footer> 
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+  import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD6XevtiU5_5T3qsPrrgZNrcTXOUcI_jaY",
+    authDomain: "sammu-database.firebaseapp.com",
+    databaseURL: "https://sammu-database-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "sammu-database",
+    storageBucket: "sammu-database.appspot.com",
+    messagingSenderId: "975899243226",
+    appId: "1:975899243226:web:c81d3263a3e30a271a6be3",
+    measurementId: "G-B85J29F4RB"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  getAnalytics(app);
+
+  const likeRef = ref(db, "likes");
+
+  // Initial like count
+  get(likeRef).then(snapshot => {
+    if (snapshot.exists()) {
+      document.getElementById("likeCount").innerText = snapshot.val();
+    }
+  });
+
+  // Real-time listener
+  onValue(likeRef, snapshot => {
+    const likes = snapshot.val();
+    if (likes !== null) {
+      document.getElementById("likeCount").innerText = likes;
+    }
+  });
+
+  // Like function
+  window.likePost = function () {
+    const likeButton = document.getElementById("likeButton");
+    const likeCountSpan = document.getElementById("likeCount");
+
+    if (localStorage.getItem("hasLiked") === "true") {
+      alert("You've already liked ❤️ Thank you!");
+      return;
+    }
+
+    localStorage.setItem("hasLiked", "true");
+
+    runTransaction(likeRef, (currentLikes) => {
+      return (currentLikes || 0) + 1;
+    }).then(({ snapshot }) => {
+      likeCountSpan.textContent = snapshot.val();
+    }).catch((error) => {
+      console.error("Error updating likes:", error);
+    });
+  };
+</script>
+
+
+
+   <!--   
     - custom js link  
   -->    <script src="./assets/js/script.js"></script>    <!--   
     - ionicon link  
