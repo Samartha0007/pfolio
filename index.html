@@ -8,10 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head><body>
-  <!-- Preloader -->
-  <div class="preloader" data-preloader>
-    <div class="circle"></div>
-  </div>  <main class="container">
+  <main class="container">
     <h1>Rohan Gr</h1>
     <p>Hello! I’m a creative web & app developer passionate about building meaningful experiences.</p><!-- Like Button -->
 <button id="likeButton" class="like-btn" onclick="likePost()">
@@ -27,12 +24,7 @@
   height="380" frameborder="0" allowfullscreen=""
   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-  </main>  <!-- Preloader Removal Script -->  <script>
-    window.addEventListener("load", () => {
-      document.querySelector("[data-preloader]").classList.add("loaded");
-      document.body.classList.add("loaded");
-    });
-  </script>  <!-- Firebase Like Button Script -->  <script type="module">
+  </main>  <!-- Firebase Like Button Script -->  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
     import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
@@ -77,7 +69,7 @@
         setTimeout(() => {
           likeButton.classList.remove("shake");
         }, 500);
-        alert("Oops! You've already liked \u2764\ufe0f\ud83d\udd25 Thanks!");
+        alert("Oops! You've already liked ❤️‍🔥 Thanks!");
         return;
       }
 
@@ -85,7 +77,7 @@
 
       const heart = document.createElement("div");
       heart.classList.add("floating-heart");
-      heart.innerHTML = "+1 \u2764\ufe0f\ud83d\udd25";
+      heart.innerHTML = "+1 ❤️‍🔥";
       const rect = likeButton.getBoundingClientRect();
       heart.style.left = `${rect.left + rect.width / 2}px`;
       heart.style.top = `${rect.top - 10}px`;
