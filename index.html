@@ -140,23 +140,27 @@ This site is where I share a bit about me and what I'm interested in. Thanks for
 
   </footer> 
 
-  <script type="module">    
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";    
-import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";    
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";    
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Updated Firebase configuration    
-const firebaseConfig = {    
-    apiKey: "AIzaSyD6XevtiU5_5T3qsPrrgZNrcTXOUcI_jaY",    
-    authDomain: "sammu-database.firebaseapp.com",    
-    databaseURL: "https://sammu-database-default-rtdb.asia-southeast1.firebasedatabase.app",    
-    projectId: "sammu-database",    
-    storageBucket: "sammu-database.firebasestorage.app",    
-    messagingSenderId: "975899243226",    
-    appId: "1:975899243226:web:c81d3263a3e30a271a6be3",    
-    measurementId: "G-B85J29F4RB"    
-};    
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCNFzUeptnvhGNvHybk19UWBGIidlfEs5k",
+    authDomain: "bhghhh-ca742.firebaseapp.com",
+    projectId: "bhghhh-ca742",
+    storageBucket: "bhghhh-ca742.firebasestorage.app",
+    messagingSenderId: "202352802856",
+    appId: "1:202352802856:web:8741ecaaf5a9c21243491d",
+    measurementId: "G-SHG2ETPLDB"
+  };
 
+  
+ 
 // Initialize Firebase    
 const app = initializeApp(firebaseConfig);    
 const db = getDatabase(app);    
