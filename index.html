@@ -57,8 +57,6 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
   <!-- Preload Images -->
   <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">
 </head>
@@ -88,10 +86,9 @@
             </p>
 
             <button id="likeButton" onclick="likePost()">
-              <div class="like-content">
-                <i class="uil uil-heart button_icon"></i>
+              <div class="like-content" style="display: flex; align-items: center; gap: 8px;">
+                <ion-icon name="heart-outline" class="button_icon"></ion-icon>
                 <span id="likeCount">Counting</span>
-        <i class="uil uil-heart button_icon"></i>  
                 <span class="likes-text">Likes</span>
               </div>
             </button>
