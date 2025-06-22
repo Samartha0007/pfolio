@@ -128,11 +128,11 @@ This site is where I share a bit about me and what I'm interested in. Thanks for
   </footer> 
 
   <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-  import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+  import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
 
-  // Your Firebase config
+  // ✅ Correct Firebase credentials (bhghhh-ca742)
   const firebaseConfig = {
     apiKey: "AIzaSyCNFzUeptnvhGNvHybk19UWBGIidlfEs5k",
     authDomain: "bhghhh-ca742.firebaseapp.com",
@@ -144,13 +144,13 @@ This site is where I share a bit about me and what I'm interested in. Thanks for
     measurementId: "G-SHG2ETPLDB"
   };
 
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
   const analytics = getAnalytics(app);
+
   const likeRef = ref(db, "likes");
 
-  // Initial like count
+  // Initial load
   get(likeRef).then((snapshot) => {
     if (snapshot.exists()) {
       document.getElementById("likeCount").innerText = snapshot.val();
@@ -165,70 +165,58 @@ This site is where I share a bit about me and what I'm interested in. Thanks for
     }
   });
 
-  // Like function
+  // Like logic
   window.likePost = function () {
     const likeButton = document.getElementById("likeButton");
     const likeCountSpan = document.getElementById("likeCount");
-    let hasLiked = localStorage.getItem("hasLiked") === "true";
+    const hasLiked = localStorage.getItem("hasLiked") === "true";
 
     if (hasLiked) {
       likeButton.classList.add("shake");
       setTimeout(() => likeButton.classList.remove("shake"), 500);
-      alert("Oops! You've already liked ❤️‍🔥 Thanks for your support!");
+      alert("Oops! You've already liked ❤️‍🔥 Thanks for your support! 🙌😊");
       return;
     }
 
     localStorage.setItem("hasLiked", "true");
 
-    // Floating heart
     const heart = document.createElement("div");
     heart.classList.add("floating-heart");
     heart.innerHTML = "+1 ❤️‍🔥";
+
     const rect = likeButton.getBoundingClientRect();
     heart.style.left = `${rect.left + rect.width / 2}px`;
     heart.style.top = `${rect.top - 10}px`;
-    heart.style.position = "fixed";
-    heart.style.zIndex = "9999";
+
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 1500);
 
-    // Ripple
     showRippleEffect(likeButton);
     likeButton.disabled = true;
 
-    // Update count
     runTransaction(likeRef, (currentLikes) => {
       return (currentLikes || 0) + 1;
-    }).then(({ snapshot }) => {
-      likeCountSpan.textContent = snapshot.val();
-      likeButton.disabled = false;
-    }).catch((error) => {
-      console.error("Error updating likes:", error);
-      likeButton.disabled = false;
-    });
+    })
+      .then(({ snapshot }) => {
+        likeCountSpan.textContent = snapshot.val();
+        likeButton.disabled = false;
+      })
+      .catch((error) => {
+        console.error("Error updating likes:", error);
+        likeButton.disabled = false;
+      });
   };
 
   function showRippleEffect(button) {
     const ripple = document.createElement("span");
     ripple.classList.add("ripple");
-    ripple.style.position = "absolute";
-    ripple.style.width = "50px";
-    ripple.style.height = "50px";
-    ripple.style.borderRadius = "50%";
-    ripple.style.background = "rgba(255, 0, 0, 0.4)";
-    ripple.style.transform = "translate(-50%, -50%) scale(1)";
-    ripple.style.animation = "ripple-animation 0.6s ease-out";
-    ripple.style.pointerEvents = "none";
-    ripple.style.left = "50%";
-    ripple.style.top = "50%";
-    ripple.style.zIndex = "1000";
-    ripple.style.position = "absolute";
-    button.style.position = "relative";
+    const rect = button.getBoundingClientRect();
+    ripple.style.left = `${rect.width / 2}px`;
+    ripple.style.top = `${rect.height / 2}px`;
     button.appendChild(ripple);
     setTimeout(() => ripple.remove(), 600);
   }
 </script>
-
    <!--   
     - custom js link  
   -->    <script src="./assets/js/script.js"></script>    <!--   
