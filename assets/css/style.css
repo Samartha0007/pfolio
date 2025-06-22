@@ -1031,7 +1031,7 @@ body.nav-active { overflow: hidden; }
         font-family: "Courier New", Courier, monospace;   font-size: 20px; /* Increase size */  
   
 font-weight: bold;  
-color: lightwhite;  
+color: black;  
 font-size:15px;  
 transition: transform 0.3s ease, color 0.3s ease;  
 }  
