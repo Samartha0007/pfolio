@@ -50,11 +50,13 @@
 This site is where I share a bit about me and what I'm interested in. Thanks for visiting!  
         </p>  
 
-        <button id="likeButton" class="btn has-before" onclick="likePost()">
-  <span class="span">Like</span>
-  <ion-icon name="heart" aria-hidden="true"></ion-icon>
-  <span id="likeCount">Counting..</span>
-</button>
+        <button id="likeButton" onclick="likePost()">    
+    <div class="like-content">    
+        <i class="uil uil-heart button_icon"></i>  
+        <span id="likeCount">Counting</span>    
+        <span class="likes-text">Likes</span>    
+    </div>    
+</button>  
 
       </div>  
 
