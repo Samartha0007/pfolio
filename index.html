@@ -1,210 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rohan Gr</title>
-  <meta name="title" content="Rohan Gr" />
+  <title>Rohan Gr</title>  <meta name="title" content="Rohan Gr" />
   <meta name="description" content="Personal portfolio of Rohan Gr" />
-
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <link rel="preload" as="image" href="./assets/images/hero-banner.jpg" />
-
-  <style>
-    .like-btn {
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 10px 20px;
-      background-color: #ff4d4f;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: transform 0.2s ease;
-    }
-
-    .like-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .like-btn ion-icon {
-      font-size: 1.2rem;
-    }
-
-    .like-btn.shake {
-      animation: shake 0.3s;
-    }
-
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-3px); }
-      50% { transform: translateX(3px); }
-      75% { transform: translateX(-2px); }
-      100% { transform: translateX(0); }
-    }
-
-    .floating-heart {
-      position: fixed;
-      font-size: 1.2rem;
-      color: red;
-      animation: floatUp 1.5s ease forwards;
-      z-index: 9999;
-    }
-
-    @keyframes floatUp {
-      from { opacity: 1; transform: translateY(0); }
-      to { opacity: 0; transform: translateY(-100px); }
-    }
-
-    .ripple {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      animation: rippleEffect 0.6s linear;
-      pointer-events: none;
-    }
-
-    @keyframes rippleEffect {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
+</head><body>
+  <!-- Preloader -->
   <div class="preloader" data-preloader>
     <div class="circle"></div>
-  </div>
+  </div>  <main class="container">
+    <h1>Rohan Gr</h1>
+    <p>Hello! I’m a creative web & app developer passionate about building meaningful experiences.</p><!-- Like Button -->
+<button id="likeButton" class="like-btn" onclick="likePost()">
+  <ion-icon name="heart" aria-hidden="true"></ion-icon>
+  <span id="likeText">Like</span>
+  <span id="likeCount">0</span>
+</button>
 
-  <header class="header" data-header>
-    <div class="container">
-      <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="170" height="40" alt="Pfolio home" />
-      </a>
+<!-- Spotify Embed -->
+<h2 style="margin-top: 2rem;">My Favorite Tunes</h2>
+<iframe style="border-radius:12px"
+  src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator" width="100%"
+  height="380" frameborder="0" allowfullscreen=""
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-      <button class="nav-toggle-btn" data-nav-toggler aria-label="Toggle menu">
-        <span class="line line-1"></span>
-        <span class="line line-2"></span>
-      </button>
-
-      <nav class="navbar" data-navbar>
-        <ul class="navbar-list">
-          <li><a href="#" class="navbar-link">Home</a></li>
-          <li><a href="#" class="navbar-link">Resume</a></li>
-          <li><a href="#" class="navbar-link">Services</a></li>
-          <li><a href="#" class="navbar-link">Portfolio</a></li>
-          <li><a href="#" class="navbar-link">Blog</a></li>
-          <li><a href="#" class="navbar-link">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="overlay" data-nav-toggler></div>
-    </div>
-  </header>
-
-  <main>
-    <article>
-      <section class="section hero" aria-label="home">
-        <div class="container">
-          <div class="hero-content">
-            <h1 class="h1 hero-title">Rohan Gr</h1>
-            <p class="hero-subtitle">Creative Web & App Developer</p>
-
-            <div class="hero-banner">
-              <img src="./assets/images/hero-banner.jpg" width="800" height="800" alt="Rohan Gr" class="w-100" />
-            </div>
-
-            <p class="section-text">
-              Hi, I’m Rohan Gr, a creative web & app developer passionate about building impactful digital experiences.
-            </p>
-
-            <div class="like-wrapper">
-              <button id="likeButton" class="like-btn" onclick="likePost()">
-                <ion-icon name="heart" aria-hidden="true"></ion-icon>
-                <span id="likeText">Like</span>
-                <span id="likeCount">0</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Spotify Preview -->
-      <section class="section" aria-label="Spotify Preview">
-        <div class="container">
-          <h2 class="h2 section-title">My Favorite Tunes</h2>
-          <p class="section-text">Here’s what I’ve been vibing to lately.</p>
-          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
-            width="100%" height="380" frameborder="0" allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-      </section>
-
-      <!-- Services -->
-      <section class="service" aria-labelledby="service-label">
-        <div class="container">
-          <div class="title-wrapper">
-            <div>
-              <p class="section-subtitle">Services That I Provide</p>
-              <h2 class="h2 section-title" id="service-label">Services</h2>
-            </div>
-            <p class="section-text">
-              I specialize in building responsive websites, modern web applications, and tailored software solutions to solve real-world problems.
-            </p>
-          </div>
-        </div>
-      </section>
-    </article>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <ul class="footer-list">
-        <li>
-          <p class="h4 footer-list-title">Get in touch</p>
-        </li>
-        <li>
-          <a href="mailto:info@rohangr.com" class="footer-link">info@rohangr.com</a>
-        </li>
-      </ul>
-
-      <ul class="footer-list">
-        <li>
-          <p class="h4 footer-list-title">Location</p>
-        </li>
-        <li>
-          <a href="#" class="footer-link">San Francisco — California</a>
-        </li>
-      </ul>
-
-      <ul class="social-list">
-        <li><a href="#" class="social-link"><ion-icon name="logo-dribbble"></ion-icon></a></li>
-        <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
-        <li><a href="#" class="social-link"><ion-icon name="logo-skype"></ion-icon></a></li>
-        <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <!-- Firebase Like Script -->
-  <script type="module">
+  </main>  <!-- Preloader Removal Script -->  <script>
+    window.addEventListener("load", () => {
+      document.querySelector("[data-preloader]").classList.add("loaded");
+      document.body.classList.add("loaded");
+    });
+  </script>  <!-- Firebase Like Button Script -->  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
     import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
@@ -222,7 +50,8 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
-    const analytics = getAnalytics(app);
+    getAnalytics(app);
+
     const likeRef = ref(db, "likes");
 
     get(likeRef).then((snapshot) => {
@@ -248,7 +77,7 @@
         setTimeout(() => {
           likeButton.classList.remove("shake");
         }, 500);
-        alert("Oops! You've already liked ❤️‍🔥 Thanks for your support!");
+        alert("Oops! You've already liked \u2764\ufe0f\ud83d\udd25 Thanks!");
         return;
       }
 
@@ -256,7 +85,7 @@
 
       const heart = document.createElement("div");
       heart.classList.add("floating-heart");
-      heart.innerHTML = "+1 ❤️‍🔥";
+      heart.innerHTML = "+1 \u2764\ufe0f\ud83d\udd25";
       const rect = likeButton.getBoundingClientRect();
       heart.style.left = `${rect.left + rect.width / 2}px`;
       heart.style.top = `${rect.top - 10}px`;
@@ -275,7 +104,7 @@
         console.error("Error updating likes:", error);
         likeButton.disabled = false;
       });
-    };
+    }
 
     function showRippleEffect(button) {
       const ripple = document.createElement("span");
@@ -286,10 +115,4 @@
       button.appendChild(ripple);
       setTimeout(() => ripple.remove(), 600);
     }
-  </script>
-
-  <!-- Ionicons -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-</html>
+  </script>  <!-- Ionicons -->  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script></body></html>
